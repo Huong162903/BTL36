@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phong Thủy An Lạc - Vật Phẩm Hợp Mệnh</title>
+    <style>
+        * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #F8F4E3; /* Màu nền trắng kem, ấm áp */
+    color: #4B3832; /* Màu chữ nâu đất đậm */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+h2, h3 {
+    color: #8B4513; /* Màu nâu đất chính */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* --- HEADER và NAVBAR --- */
+.header {
+    background-color: #654321; /* Nâu đậm cổ điển */
+    color: #FFD700; /* Vàng kim cho logo */
+    padding: 10px 0;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- Logo --- */
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.logo-icon {
+    font-size: 1.5em; 
+    margin-right: 5px;
+    color: #FFD700; /* Vàng kim nổi bật */
+}
+
+.logo-text {
+    color: #F8F4E3; /* Trắng kem */
+}
+
+.navbar a {
+    color: #F8F4E3; /* Màu chữ trắng kem */
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #8B4513; /* Nâu đất khi hover */
+    border-radius: 4px;
+}
+
+/* --- BANNER (Hero Section) --- */
+.hero {
+    background-color: #A0522D; /* Màu nâu đất sáng hơn */
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h2 {
+    color: white;
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+/* Nút chính */
+.btn-main {
+    display: inline-block;
+    background-color: #FFD700; /* Vàng kim nổi bật */
+    color: #654321; /* Chữ nâu đậm */
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-main:hover {
+    background-color: #FFC000;
+}
+
+/* --- SẢN PHẨM --- */
+.products {
+    padding: 40px 0;
+}
+
+/* KHỐI DANH MỤC SẢN PHẨM MỚI */
+.product-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px auto 40px;
+    max-width: 1000px;
+}
+
+.category-item {
+    display: inline-block;
+    background-color: #D2B48C; /* Màu nền nâu nhạt */
+    color: #4B3832; /* Màu chữ nâu đất */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.95em;
+    border: 1px solid #A0522D;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.category-item:hover {
+    background-color: #A0522D; 
+    color: #F8F4E3;
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+/* KẾT THÚC KHỐI DANH MỤC SẢN PHẨM MỚI */
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.product-card {
+    background-color: white;
+    border: 1px solid #D2B48C; /* Viền màu nâu nhạt */
+    width: 300px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Đảm bảo ảnh đồng đều và căn chỉnh */
+.product-img {
+    width: 100%;
+    height: 200px; /* Chiều cao cố định */
+    object-fit: cover; /* Cắt ảnh để vừa vặn */
+    margin-bottom: 10px;
+    border-radius: 5px; /* Bo góc nhẹ */
+}
+
+/* Căn giữa tiêu đề sản phẩm */
+.product-card h4 {
+    color: #654321;
+    margin-bottom: 10px; 
+    text-align: center; 
+}
+
+.price {
+    color: #A0522D; /* Nâu đất cho giá */
+    font-weight: bold;
+    margin: 5px 0 10px;
+}
+
+.btn-detail {
+    display: block;
+    background-color: #D2B48C; /* Nút nâu nhạt */
+    color: #4B3832;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn-detail:hover {
+    background-color: #8B4513;
+    color: white;
+}
+
+.view-all {
+    text-align: center;
+    margin-top: 30px;
+}
+/* --- PHẦN GIỚI THIỆU (ABOUT-US) --- */
+.about-us {
+    background-color: #F0EAD6; /* Màu nền be nhạt, ấm áp hơn */
+    padding: 50px 0;
+    text-align: center;
+}
+
+.about-us .section-title {
+    color: #A0522D; /* Nâu đất làm tiêu đề nổi bật */
+    font-size: 2em;
+    margin-bottom: 40px;
+}
+
+.about-block {
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto 40px;
+    padding: 25px;
+    background-color: white;
+    border-left: 5px solid #8B4513; /* Điểm nhấn nâu đất */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.about-block h4 {
+    color: #654321; /* Nâu đậm */
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.block-content p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.block-content ul {
+    list-style: disc;
+    margin-left: 25px;
+    margin-bottom: 15px;
+    color: #4B3832;
+}
+
+.block-content ul li {
+    line-height: 1.6;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+/* --- FOOTER --- */
+.footer {
+    background-color: #4B3832; /* Màu nâu đất rất đậm */
+    color: #F8F4E3;
+    padding: 30px 0 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Chia thành 3 cột */
+    gap: 30px;
+    padding-bottom: 30px;
+}
+
+.footer-col h4 {
+    color: #FFD700; /* Vàng kim cho tiêu đề cột */
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    text-align: left; /* Căn trái cho các cột */
+}
+
+.footer-col p, .footer-col ul {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li a {
+    color: #F8F4E3;
+    text-decoration: none;
+    line-height: 2;
+    transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #FFD700; /* Vàng kim khi hover */
+}
+
+.social-icons a {
+    color: #F8F4E3;
+    font-size: 1.5em;
+    margin-right: 15px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #FFD700;
+}
+
+.footer-bottom {
+    border-top: 1px solid #654321; /* Đường kẻ phân cách */
+    padding: 15px 0;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+/* --- Responsive --- */
+
+/* Tablet & Mobile Lớn */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .navbar {
+        margin-top: 10px;
+    }
+    .navbar a {
+        margin: 0 5px;
+    }
+    .product-grid {
+        gap: 15px;
+    }
+    .product-card {
+        width: 45%; /* 2 cột trên di động lớn */
+    }
+    .about-block {
+        padding: 20px;
+        margin: 0 15px 30px;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr; /* Chuyển thành 1 cột trên di động */
+        text-align: center;
+    }
+    .footer-col h4 {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .footer-col ul {
+        padding-left: 0;
+    }
+    .social-icons {
+        margin-top: 15px;
+    }
+}
+
+/* Mobile Nhỏ */
+@media (max-width: 600px) {
+    /* Danh mục sản phẩm xếp dọc */
+    .product-categories {
+        flex-direction: column; 
+        align-items: stretch;
+        padding: 0 15px;
+    }
+    .category-item {
+        margin-bottom: 10px;
+    }
+}
+
+/* Mobile Rất Nhỏ */
+@media (max-width: 480px) {
+    .product-card {
+        width: 100%; /* 1 cột trên di động rất nhỏ */
+    }
+}
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <span class="logo-icon">☯</span> 
+            <span class="logo-text">An Lạc Phong Thủy</span>
+        </div>
+        <nav class="navbar">
+            <a href="#home">Trang Chủ</a>
+            <a href="#products">Sản Phẩm</a>
+            <a href="#about">Giới Thiệu</a>
+            <a href="#contact">Liên Hệ</a>
+        </nav>
+    </div>
+</header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>Năng Lượng Thanh Khiết Cho Cuộc Sống Bình An</h2>
+            <p>Khám phá các vật phẩm phong thủy tự nhiên, mang lại tài lộc và may mắn.</p>
+            <a href="#products" class="btn-main">Xem Vật Phẩm Nổi Bật</a>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div class="container">
+            <h3 class="section-title">✨ Vật Phẩm Được Ưa Chuộng</h3>
+            
+            <div class="product-categories">
+                <a href="#" class="category-item">Vòng Tay Phong Thủy</a>
+                <a href="#" class="category-item">Đá Quý & Thạch Anh</a>
+                <a href="#" class="category-item">Tượng & Linh Vật</a>
+                <a href="#" class="category-item">Tin Tức Phong Thủy</a>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="placeholder-1.jpg" alt="Vòng tay Đá" class="product-img">
+                    <h4>Vòng Tay Đá Thạch Anh</h4>
+                    <p class="price">499.000 VNĐ</p>
+                    <a href="#" class="btn-detail">Xem Chi Tiết</a>
+                </div>
+                <div class="product-card">
+                    <img src="placeholder-2.jpg" alt="Tượng Phật" class="product-img">
+                    <h4>Tượng Phật Di Lặc Gỗ</h4>
+                    <p class="price">1.200.000 VNĐ</p>
+                    <a href="#" class="btn-detail">Xem Chi Tiết</a>
+                </div>
+                <div class="product-card">
+                    <img src="placeholder-3.jpg" alt="Tỳ Hưu" class="product-img">
+                    <h4>Tỳ Hưu Đồng Hút Lộc</h4>
+                    <p class="price">750.000 VNĐ</p>
+                    <a href="#" class="btn-detail">Xem Chi Tiết</a>
+                </div>
+            </div>
+            <div class="view-all">
+                   <a href="products-list.html" class="btn-main">Xem Tất Cả Sản Phẩm</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-us">
+    <div class="container">
+        <h3 class="section-title">🌿 Hành Trình Của An Lạc Phong Thủy</h3>
+
+        <div class="about-block philosophy">
+            <h4>Triết Lý "An Lạc"</h4>
+            <div class="block-content">
+                <p>Chúng tôi tin rằng **phong thủy không chỉ là mê tín**, mà là nghệ thuật sống hài hòa với thiên nhiên và vũ trụ. Tên gọi **An Lạc** gói gọn sứ mệnh của chúng tôi: mang đến sự **Bình An** trong tâm hồn và sự **Thịnh Vượng** trong cuộc sống thông qua các vật phẩm có năng lượng thanh khiết.</p>
+                <p>Mỗi vật phẩm đều được lựa chọn kỹ lưỡng, đảm bảo tính **tự nhiên** và **thuần khiết**, giúp gia chủ cân bằng ngũ hành và thu hút nguồn năng lượng tích cực.</p>
+            </div>
+        </div>
+
+        <div class="about-block commitment">
+            <h4>Cam Kết Chất Lượng Tận Tâm</h4>
+            <div class="block-content">
+                <ul>
+                    <li>**Nguồn Gốc Đảm Bảo:** 100% đá quý, gỗ tự nhiên, không qua xử lý hóa chất độc hại.</li>
+                    <li>**Khai Quang Cẩn Thận:** Vật phẩm được trì chú và khai quang bởi các chuyên gia phong thủy uy tín.</li>
+                    <li>**Tư Vấn Hợp Mệnh:** Đội ngũ chuyên gia sẽ giúp bạn lựa chọn vật phẩm phù hợp với **mệnh, tuổi và nhu cầu** cụ thể của bạn.</li>
+                </ul>
+                <p>Sự hài lòng và niềm tin của khách hàng là kim chỉ nam cho mọi hoạt động của chúng tôi.</p>
+            </div>
+        </div>
+        
+        <div class="about-block story">
+            <h4>Chúng Tôi Bắt Đầu Như Thế Nào?</h4>
+            <div class="block-content">
+                <p>An Lạc Phong Thủy ra đời từ niềm đam mê sâu sắc với văn hóa Á Đông và năng lượng của đá tự nhiên. Người sáng lập, ông [Tên Người Sáng Lập], đã dành hơn một thập kỷ để nghiên cứu và sưu tầm các vật phẩm phong thủy, với mong muốn lan tỏa sự **bình yên và tài lộc** đến cộng đồng.</p>
+                <p>Khởi đầu là một cửa hàng nhỏ, nay chúng tôi tự hào là đối tác tin cậy của hàng ngàn gia chủ trên khắp cả nước.</p>
+            </div>
+        </div>
+
+    </div>
+    </section>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-grid">
+        <div class="footer-col contact-info">
+            <h4>Liên Hệ Chúng Tôi</h4>
+            <p><strong>Hotline:</strong> 0987 654 321</p>
+            <p><strong>Email:</strong> anlacphongthuy@email.com</p>
+            <p><strong>Địa chỉ:</strong> Số X, Đường Y, Quận Z, TP. HCM</p>
+            <p>Giờ làm việc: 9:00 - 18:00 (T2 - T7)</p>
+        </div>
+
+        <div class="footer-col nav-links">
+            <h4>Danh Mục</h4>
+            <ul>
+                <li><a href="#products">Vòng Tay Phong Thủy</a></li>
+                <li><a href="#">Đá Quý & Thạch Anh</a></li>
+                <li><a href="#">Tượng & Linh Vật</a></li>
+                <li><a href="#">Tin Tức Phong Thủy</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col policies">
+            <h4>Chính Sách</h4>
+            <ul>
+                <li><a href="#">Chính sách Đổi trả</a></li>
+                <li><a href="#">Chính sách Bảo mật</a></li>
+                <li><a href="#">Hướng dẫn Thanh toán</a></li>
+            </ul>
+            <div class="social-icons">
+                <a href="#">[FB]</a>
+                <a href="#">[Zalo]</a>
+                <a href="#">[IG]</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2025 An Lạc Phong Thủy. Bảo lưu mọi quyền.</p>
+    </div>
+</footer>
+
+</body>
+</html>
