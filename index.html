@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phong Thủy An Lạc - Vật Phẩm Hợp Mệnh</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
+        /* styles.css */
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -75,6 +77,23 @@ h2, h3 {
     border-radius: 4px;
 }
 
+/* --- User Actions (Giỏ hàng, Đăng nhập) --- */
+.user-actions {
+    display: flex;
+    align-items: center;
+}
+
+.user-actions a {
+    color: #FFD700; 
+    font-size: 1.5em;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+
+.user-actions a:hover {
+    color: #F8F4E3;
+}
+
 /* --- BANNER (Hero Section) --- */
 .hero {
     background-color: #A0522D; /* Màu nâu đất sáng hơn */
@@ -104,6 +123,8 @@ h2, h3 {
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
 }
 
 .btn-main:hover {
@@ -145,7 +166,6 @@ h2, h3 {
     transform: translateY(-2px); 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
-/* KẾT THÚC KHỐI DANH MỤC SẢN PHẨM MỚI */
 
 .product-grid {
     display: flex;
@@ -169,7 +189,6 @@ h2, h3 {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Đảm bảo ảnh đồng đều và căn chỉnh */
 .product-img {
     width: 100%;
     height: 200px; /* Chiều cao cố định */
@@ -178,7 +197,6 @@ h2, h3 {
     border-radius: 5px; /* Bo góc nhẹ */
 }
 
-/* Căn giữa tiêu đề sản phẩm */
 .product-card h4 {
     color: #654321;
     margin-bottom: 10px; 
@@ -189,6 +207,23 @@ h2, h3 {
     color: #A0522D; /* Nâu đất cho giá */
     font-weight: bold;
     margin: 5px 0 10px;
+}
+
+/* Nút thêm vào giỏ hàng mới */
+.btn-add-to-cart {
+    background-color: #8B4513;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-add-to-cart:hover {
+    background-color: #654321;
 }
 
 .btn-detail {
@@ -298,6 +333,7 @@ h2, h3 {
     color: #FFD700; /* Vàng kim khi hover */
 }
 
+/* Thay thế các thẻ [FB] bằng icon thực tế */
 .social-icons a {
     color: #F8F4E3;
     font-size: 1.5em;
@@ -317,6 +353,224 @@ h2, h3 {
     font-size: 0.8em;
 }
 
+/* ==================================== */
+/* === STYLES CHO MODAL ĐĂNG NHẬP/KÝ === */
+/* ==================================== */
+
+.modal {
+    display: none; /* Ẩn theo mặc định */
+    position: fixed;
+    z-index: 1000; /* Luôn nằm trên cùng */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Nền tối mờ */
+}
+
+.modal-content {
+    background-color: #F8F4E3; /* Nền trắng kem */
+    margin: 10% auto; /* Canh giữa dọc, margin trên 10% */
+    padding: 30px;
+    border: 1px solid #8B4513;
+    width: 90%; 
+    max-width: 450px; /* Chiều rộng tối đa */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: fadeIn 0.3s;
+}
+
+/* Nút đóng Modal */
+.close-btn {
+    color: #4B3832;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #A0522D;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    color: #654321;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.modal .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #4B3832;
+}
+
+.modal .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #D2B48C;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.modal .form-group input:focus {
+    border-color: #A0522D;
+    outline: none;
+    box-shadow: 0 0 5px rgba(160, 82, 45, 0.5);
+}
+
+.modal .switch-form {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+.modal .switch-form a {
+    color: #A0522D;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.modal .switch-form a:hover {
+    text-decoration: underline;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-50px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* ==================================== */
+/* === STYLES CHO GIỎ HÀNG & THANH TOÁN === */
+/* ==================================== */
+
+.cart-section, .checkout-section {
+    padding: 40px 0;
+}
+
+.cart-items-list, .checkout-summary, .checkout-form {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #D2B48C;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.item-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 15px;
+}
+
+.item-details {
+    flex-grow: 1;
+}
+
+.item-details h4 {
+    text-align: left;
+    margin-bottom: 5px;
+    color: #654321;
+}
+
+.item-price {
+    font-weight: bold;
+    color: #A0522D;
+}
+
+.item-quantity input {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #D2B48C;
+    border-radius: 4px;
+}
+
+.item-remove {
+    color: #A0522D;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.9em;
+}
+
+.cart-summary, .order-summary {
+    border-top: 2px solid #D2B48C;
+    padding-top: 15px;
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.total-row {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #8B4513;
+}
+
+.checkout-btn-area {
+    text-align: right;
+    margin-top: 30px;
+}
+
+.checkout-btn-area .btn-main {
+    padding: 12px 30px;
+    font-size: 1.1em;
+}
+
+/* Checkout Form */
+.checkout-form {
+    padding: 30px;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.checkout-form h4 {
+    text-align: left;
+    margin-bottom: 20px;
+    color: #654321;
+    font-size: 1.5em;
+}
+
+.checkout-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #D2B48C;
+    border-radius: 4px;
+}
+
 /* --- Responsive --- */
 
 /* Tablet & Mobile Lớn */
@@ -330,6 +584,9 @@ h2, h3 {
     }
     .navbar a {
         margin: 0 5px;
+    }
+    .user-actions {
+        margin-top: 10px;
     }
     .product-grid {
         gap: 15px;
@@ -355,6 +612,26 @@ h2, h3 {
     .social-icons {
         margin-top: 15px;
     }
+    .cart-item {
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    .item-img {
+        margin: 0 auto 10px;
+    }
+    .item-details {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .item-quantity {
+        margin: 0 auto;
+    }
+    .item-remove {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+    }
 }
 
 /* Mobile Nhỏ */
@@ -375,6 +652,9 @@ h2, h3 {
     .product-card {
         width: 100%; /* 1 cột trên di động rất nhỏ */
     }
+    .header .logo {
+        font-size: 1.5em;
+    }
 }
     </style>
 </head>
@@ -387,11 +667,15 @@ h2, h3 {
             <span class="logo-text">An Lạc Phong Thủy</span>
         </div>
         <nav class="navbar">
-            <a href="#home">Trang Chủ</a>
+            <a href="index.html">Trang Chủ</a>
             <a href="#products">Sản Phẩm</a>
             <a href="#about">Giới Thiệu</a>
             <a href="#contact">Liên Hệ</a>
         </nav>
+        <div class="user-actions">
+            <a href="cart.html" title="Giỏ Hàng"><i class="fas fa-shopping-cart"></i></a> 
+            <a href="#" id="open-login-modal" title="Tài Khoản"><i class="fas fa-user"></i></a> 
+        </div>
     </div>
 </header>
 
@@ -418,23 +702,26 @@ h2, h3 {
                     <img src="placeholder-1.jpg" alt="Vòng tay Đá" class="product-img">
                     <h4>Vòng Tay Đá Thạch Anh</h4>
                     <p class="price">499.000 VNĐ</p>
+                    <button class="btn-add-to-cart">Thêm vào Giỏ</button> 
                     <a href="#" class="btn-detail">Xem Chi Tiết</a>
                 </div>
                 <div class="product-card">
                     <img src="placeholder-2.jpg" alt="Tượng Phật" class="product-img">
                     <h4>Tượng Phật Di Lặc Gỗ</h4>
                     <p class="price">1.200.000 VNĐ</p>
+                    <button class="btn-add-to-cart">Thêm vào Giỏ</button>
                     <a href="#" class="btn-detail">Xem Chi Tiết</a>
                 </div>
                 <div class="product-card">
                     <img src="placeholder-3.jpg" alt="Tỳ Hưu" class="product-img">
                     <h4>Tỳ Hưu Đồng Hút Lộc</h4>
                     <p class="price">750.000 VNĐ</p>
+                    <button class="btn-add-to-cart">Thêm vào Giỏ</button>
                     <a href="#" class="btn-detail">Xem Chi Tiết</a>
                 </div>
             </div>
             <div class="view-all">
-                   <a href="products-list.html" class="btn-main">Xem Tất Cả Sản Phẩm</a>
+                    <a href="products-list.html" class="btn-main">Xem Tất Cả Sản Phẩm</a>
             </div>
         </div>
     </section>
@@ -502,9 +789,9 @@ h2, h3 {
                 <li><a href="#">Hướng dẫn Thanh toán</a></li>
             </ul>
             <div class="social-icons">
-                <a href="#">[FB]</a>
-                <a href="#">[Zalo]</a>
-                <a href="#">[IG]</a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </div>
@@ -513,6 +800,96 @@ h2, h3 {
         <p>&copy; 2025 An Lạc Phong Thủy. Bảo lưu mọi quyền.</p>
     </div>
 </footer>
+
+
+<div id="auth-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        
+        <div id="login-form-modal">
+            <h2>Đăng Nhập Tài Khoản</h2>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="modal-login-email">Email:</label>
+                    <input type="email" id="modal-login-email" name="email" required placeholder="Nhập email của bạn">
+                </div>
+                <div class="form-group">
+                    <label for="modal-login-password">Mật khẩu:</label>
+                    <input type="password" id="modal-login-password" name="password" required placeholder="Nhập mật khẩu">
+                </div>
+                <button type="submit" class="btn-main" style="width: 100%; margin-top: 10px;">Đăng Nhập</button>
+            </form>
+            <div class="switch-form">
+                Chưa có tài khoản? <a href="#" id="show-register-modal">Đăng ký ngay</a>
+            </div>
+        </div>
+
+        <div id="register-form-modal">
+            <h2>Tạo Tài Khoản Mới</h2>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="modal-register-name">Họ tên:</label>
+                    <input type="text" id="modal-register-name" name="name" required placeholder="Nhập họ tên của bạn">
+                </div>
+                <div class="form-group">
+                    <label for="modal-register-email">Email:</label>
+                    <input type="email" id="modal-register-email" name="email" required placeholder="Nhập email của bạn">
+                </div>
+                <div class="form-group">
+                    <label for="modal-register-password">Mật khẩu:</label>
+                    <input type="password" id="modal-register-password" name="password" required placeholder="Tạo mật khẩu">
+                </div>
+                <button type="submit" class="btn-main" style="width: 100%; margin-top: 10px;">Đăng Ký</button>
+            </form>
+            <div class="switch-form">
+                Đã có tài khoản? <a href="#" id="show-login-modal">Đăng nhập</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Lấy các phần tử Modal
+    const modal = document.getElementById("auth-modal");
+    const btnOpen = document.getElementById("open-login-modal");
+    const btnClose = document.getElementsByClassName("close-btn")[0];
+    const loginForm = document.getElementById("login-form-modal");
+    const registerForm = document.getElementById("register-form-modal");
+    const linkShowRegister = document.getElementById("show-register-modal");
+    const linkShowLogin = document.getElementById("show-login-modal");
+
+    // 1. Mở Modal khi click vào icon Tài khoản
+    btnOpen.onclick = function() {
+        modal.style.display = "block";
+        loginForm.style.display = "block"; // Đảm bảo Login form hiện ra đầu tiên
+        registerForm.style.display = "none";
+    }
+
+    // 2. Đóng Modal khi click vào nút X
+    btnClose.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // 3. Đóng Modal khi click ra ngoài vùng Modal
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // 4. Chuyển đổi giữa Đăng nhập và Đăng ký
+    linkShowRegister.onclick = function(e) {
+        e.preventDefault();
+        loginForm.style.display = "none";
+        registerForm.style.display = "block";
+    }
+
+    linkShowLogin.onclick = function(e) {
+        e.preventDefault();
+        registerForm.style.display = "none";
+        loginForm.style.display = "block";
+    }
+</script>
 
 </body>
 </html>
